@@ -27,7 +27,7 @@ test.describe('Pulpit tests', () => {
     //Assert
     await page.getByRole('link', { name: 'Przelew wykonany! Chuck' }).click();
   });
-  test.only('Successful mobile top-up', async ({ page }) => {
+  test('Successful mobile top-up', async ({ page }) => {
     await page.goto('https://demo-bank.vercel.app/');
     await page.getByTestId('login-input').fill('tester12');
     await page.getByTestId('password-input').fill('pass1234');
