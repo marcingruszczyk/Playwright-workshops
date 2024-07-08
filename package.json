@@ -2,7 +2,11 @@
   "name": "demo-bank-test",
   "version": "1.0.0",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+   "test": "npx playwright test",
+   "test:headed": "npx playwright test --headed",
+   "test:pulpit": "npm run test tests/pulpit.spec.ts"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
