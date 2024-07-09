@@ -1,5 +1,6 @@
 import { test, expect } from '@playwright/test';
-import { loginData } from './test-data/login.data';
+import { loginData } from '../test-data/login.data';
+
 
 test.describe('Pulpit tests', () => {
   test.beforeEach(async ({ page }) => {
