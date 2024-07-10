@@ -12,7 +12,6 @@ test.describe('Transfer tests', () => {
 
     await page.goto('/');
     const loginPage = new LoginPage(page);
-
     await loginPage.login(userId, userPassword);
 
     const pulpitPage = new PulpitPage(page);
@@ -28,7 +27,6 @@ test.describe('Transfer tests', () => {
     const expectedMessage = 'Przelew wykonany! 50,00PLN dla Jan Nowak';
 
     //Act
-
     await transferPage.makeTransfer(
       receiverName,
       receiverAccountNumber,

@@ -12,7 +12,6 @@ test.describe('User login to Demobank', () => {
 
   test('Succesful login with correct credentials', async ({ page }) => {
     // Arrange
-
     const userId = loginData.userId;
     const userPassword = loginData.userPassword;
     const expectedUserName = 'Jan Demobankowy';
