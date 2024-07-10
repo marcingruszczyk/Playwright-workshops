@@ -2,6 +2,7 @@ import { test, expect } from '@playwright/test';
 import { loginData } from '../test-data/login.data';
 import { LoginPage } from '../pages/login.page';
 import { TransferPage } from '../pages/transfer.page';
+import { PulpitPage } from '../pages/pulpit.page';
 
 test.describe('Transfer tests', () => {
   test.beforeEach(async ({ page }) => {
@@ -13,7 +14,10 @@ test.describe('Transfer tests', () => {
     await loginPage.loginInput.fill(userId);
     await loginPage.passwordInput.fill(userPassword);
     await loginPage.loginButton.click();
-    await page.getByRole('link', { name: 'płatności' }).click();
+    
+    const pulpitPage = new PulpitPage(page)
+    await pulpitPage.sideMenu.paymentButton.click()
+    //await page.getByRole('link', { name: 'płatności' }).click();
   });
 
   test('Simple trasnfer', async ({ page }) => {
