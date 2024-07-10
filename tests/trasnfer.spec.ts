@@ -29,17 +29,11 @@ test.describe('Transfer tests', () => {
 
     //Act
 
-    await transferPage.transferReceiver.fill(receiverName);
-    await transferPage.accountNumber.fill(receiverAccountNumber);
-    await transferPage.transferAmount.fill(transferAmount);
-    await transferPage.transferButton.click();
-    await transferPage.closeButton.click();
-
-    // await page.getByTestId('transfer_receiver').fill(receiverName);
-    // await page.getByTestId('form_account_to').fill(receiverAccountNumber);
-    // await page.getByTestId('form_amount').fill(transferAmount);
-    // await page.getByRole('button', { name: 'wykonaj przelew' }).click();
-    // await page.getByTestId('close-button').click();
+    await transferPage.makeTransfer(
+      receiverName,
+      receiverAccountNumber,
+      transferAmount,
+    );
 
     //Assert
     await expect(transferPage.transferMessage).toHaveText(expectedMessage);
