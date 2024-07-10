@@ -19,21 +19,25 @@ test.describe('Transfer tests', () => {
     transferPage = new TransferPage(page);
   });
 
-  test('Simple trasnfer @transfer @integration', async ({ page }) => {
-    //Arange
-    const receiverName = 'Jan Nowak';
-    const receiverAccountNumber = '12 3456 7891 2345 6789 1234 56789';
-    const transferAmount = '50';
-    const expectedMessage = 'Przelew wykonany! 50,00PLN dla Jan Nowak';
+  test(
+    'Simple trasnfer',
+    { tag: ['@transfer', '@integration'] },
+    async ({ page }) => {
+      //Arange
+      const receiverName = 'Jan Nowak';
+      const receiverAccountNumber = '12 3456 7891 2345 6789 1234 56789';
+      const transferAmount = '50';
+      const expectedMessage = 'Przelew wykonany! 50,00PLN dla Jan Nowak';
 
-    //Act
-    await transferPage.makeTransfer(
-      receiverName,
-      receiverAccountNumber,
-      transferAmount,
-    );
+      //Act
+      await transferPage.makeTransfer(
+        receiverName,
+        receiverAccountNumber,
+        transferAmount,
+      );
 
-    //Assert
-    await expect(transferPage.transferMessage).toHaveText(expectedMessage);
-  });
+      //Assert
+      await expect(transferPage.transferMessage).toHaveText(expectedMessage);
+    },
+  );
 });
