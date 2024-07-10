@@ -19,7 +19,7 @@ test.describe('Transfer tests', () => {
     transferPage = new TransferPage(page);
   });
 
-  test('Simple trasnfer', async ({ page }) => {
+  test('Simple trasnfer @transfer @integration', async ({ page }) => {
     //Arange
     const receiverName = 'Jan Nowak';
     const receiverAccountNumber = '12 3456 7891 2345 6789 1234 56789';
