@@ -17,7 +17,13 @@ test.describe('Pulpit tests', () => {
 
   test(
     'quick payment with correct data',
-    { tag: ['@pulpit', '@integration'] },
+    {
+      tag: ['@pulpit', '@integration'],
+      annotation: {
+        type: 'Documentation',
+        description: 'https://jaktestowac.pl/course/playwright-wprowadzenie/',
+      },
+    },
     async ({ page }) => {
       // Arrange
       const receiverId = '2';

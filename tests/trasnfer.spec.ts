@@ -21,7 +21,14 @@ test.describe('Transfer tests', () => {
 
   test(
     'Simple trasnfer',
-    { tag: ['@transfer', '@integration'] },
+    {
+      tag: ['@transfer', '@integration'],
+      annotation: {
+        type: 'Documentation',
+        description:
+          'More to find at: https://jaktestowac.pl/lesson/pw1s04l04/ ',
+      },
+    },
     async ({ page }) => {
       //Arange
       const receiverName = 'Jan Nowak';

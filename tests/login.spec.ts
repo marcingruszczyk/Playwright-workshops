@@ -12,7 +12,13 @@ test.describe('User login to Demobank', () => {
 
   test(
     'Succesful login with correct credentials ',
-    { tag: '@login' },
+    {
+      tag: '@login',
+      annotation: {
+        type: 'Happy Path',
+        description: 'Succesful login with correct credentials',
+      },
+    },
     async ({ page }) => {
       // Arrange
       const userId = loginData.userId;
@@ -29,7 +35,7 @@ test.describe('User login to Demobank', () => {
 
   test(
     'Unsuccesful login with too short username',
-    { tag: ['@login', '@smoke'] },
+    { tag: ['@login', '@smoke', '@unhappy_path'], },
     async ({ page }) => {
       // Arrange
       const incorrectUserID = 'tester';
@@ -48,7 +54,7 @@ test.describe('User login to Demobank', () => {
 
   test(
     'Unsuccesful login with too short password',
-    { tag: '@login' },
+    { tag: ['@login', '@unhappy_path'] },
     async ({ page }) => {
       // Arrange
       const userId = 'tester12';
