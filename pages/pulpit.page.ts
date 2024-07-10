@@ -18,4 +18,23 @@ export class PulpitPage {
   topUpCheckBox = this.page.locator('#uniform-widget_1_topup_agreement span');
   topUpButton = this.page.getByRole('button', { name: 'doładuj telefon' });
   availableMoney = this.page.locator('#money_value');
+
+  async makeTopUp(topUpReceiver: string, topUpAmount: string): Promise<void> {
+    await this.topUpReceiver.selectOption(topUpReceiver);
+    await this.topUpAmount.fill(topUpAmount);
+    await this.topUpCheckBox.click();
+    await this.topUpButton.click();
+    await this.closeButton.click();
+  }
+
+  async makeTransfer(
+    receiverId: string,
+    transferAmount: string,
+    transferTitle: string,
+  ): Promise<void> {
+    await this.transferReceiver.selectOption(receiverId);
+    await this.transferAmount.fill(transferAmount);
+    await this.transferTitle.fill(transferTitle);
+    await this.transferButton.click();
+  }
 }
